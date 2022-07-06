@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import ProductCard from "./components/ProductCard";
 import LabelInputForm from "./components/LabelInputForm";
+import GeneralButton from "./components/GeneralButton";
 
 function App() {
     let [counterButtonStrawberry, setButtonStrawberry] = React.useState(0);
@@ -27,7 +28,7 @@ function App() {
     function submitForm(e) {
         e.preventDefault();
         console.log(`Aardbeien: ${counterButtonStrawberry}`);
-        console.log(`Banane: ${counterButtonBanana}`);
+        console.log(`Bananen: ${counterButtonBanana}`);
         console.log(`Appels: ${counterButtonApple}`);
         console.log(`Kiwi's: ${counterButtonKiwi}`);
         console.log(`Voornaam: ${firstNameValue}`);
@@ -64,61 +65,43 @@ function App() {
                     productVariable={counterButtonKiwi}
                     productFunction={setButtonKiwi}
                 />
-                <button
-                    className="reset-button"
-                    onClick={resetAllProducts}>
-                    Reset
-                </button>
+                <GeneralButton
+                buttonType="button"
+                nameValue="Reset"
+                onClick={resetAllProducts}
+                />
 
                 <form onSubmit={submitForm}>
                     <LabelInputForm
                         labelName="Voornaam"
-                        name="firstName"
+                        nameValue="firstName"
                         type="text"
                         value={firstNameValue}
                         inputFunction={setFirstNamevalue}
                     />
-                    <label htmlFor="firstName">
-                        Voornaam
-                        <input
-                            type="text"
-                            id="firstName"
-                            name="firstName"
-                            value={firstNameValue}
-                            onChange={(e) => setFirstNamevalue(e.target.value)}
-                        />
-                    </label>
-                    <label htmlFor="lastName">
-                        Achternaam
-                        <input
-                            id="lastName"
-                            name="lastName"
-                            type="text"
-                            value={lastNameValue}
-                            onChange={(e) => setLastNameValue(e.target.value)}
-                        />
-                    </label>
-                    <label htmlFor="age">
-                        Leeftijd
-                        <input
-                            name="age"
-                            id="age"
-                            type="number"
-                            min="0"
-                            value={ageValue}
-                            onChange={(e) => setAgeValue(e.target.value)}
-                        />
-                    </label>
-                    <label htmlFor="postalCode">
-                        Postcode
-                        <input
-                            name="postalCode"
-                            id="postalCode"
-                            type="text"
-                            value={postalCodeValue}
-                            onChange={(e) => setPostalCodeValue(e.target.value)}
-                        />
-                    </label>
+                    <LabelInputForm
+                        labelName="Achternaam"
+                        nameValue="lastName"
+                        type="text"
+                        value={lastNameValue}
+                        inputFunction={setLastNameValue}
+                    />
+
+                    <LabelInputForm
+                        labelName="Leeftijd"
+                        nameValue="age"
+                        type="number"
+                        value={ageValue}
+                        inputFunction={setAgeValue}
+                        min="0"
+                    />
+                    <LabelInputForm
+                        labelName="Postcode"
+                        nameValue="postalCode"
+                        type="text"
+                        value={postalCodeValue}
+                        inputFunction={setPostalCodeValue}
+                    />
                     <label htmlFor="deliveryFrequency">
                         Bezorgfrequentie
                         <select
@@ -133,26 +116,23 @@ function App() {
 
                         </select>
                     </label>
-                    <label htmlFor="duringTheDay">
-                        <input
-                            name="deliveryTime"
-                            id="duringTheDay"
-                            type="radio"
-                            value="duringTheDay"
-                            onChange={(e) => toggleDeliveryTime(e.target.value) }
-                        />
-                        Overdag
-                    </label>
-                    <label htmlFor="duringTheEvening">
-                        <input
-                            name="deliveryTime"
-                            id="duringTheEvening"
-                            type="radio"
-                            value="duringTheEvening"
-                            onChange={(e) => toggleDeliveryTime(e.target.value)}
-                        />
-                        's Avonds
-                    </label>
+                    <LabelInputForm
+                        nameValue="duringTheDay"
+                        type="radio"
+                        value="duringTheDay"
+                        inputFunction={toggleDeliveryTime}
+                        labelNameUnderneath="Overdag"
+                        name="deliveryTime"
+                    />
+
+                    <LabelInputForm
+                        nameValue="duringTheEVening"
+                        type="radio"
+                        value="duringTheEvening"
+                        inputFunction={toggleDeliveryTime}
+                        labelNameUnderneath="'s Avonds"
+                        name="deliveryTime"
+                    />
                     <label>
                         Opmerking
                         <textarea
@@ -162,7 +142,7 @@ function App() {
                             value={commentValue}
                             onChange={(e) => setCommentValue(e.target.value)}
                         >
-                </textarea>
+                        </textarea>
                     </label>
 
                     <label htmlFor="termsAgree">
@@ -175,12 +155,11 @@ function App() {
                         />
                         Ik ga akkoord met de voorwaarden
                     </label>
-                    <button
-                        type="submit"
-                        disabled={agreementValue === false}
-                    >
-                        Verzend
-                    </button>
+                    <GeneralButton
+                    buttonType="submit"
+                    nameValue="Verzend"
+                    disabled={agreementValue === false}
+                    />
                 </form>
             </section>
 

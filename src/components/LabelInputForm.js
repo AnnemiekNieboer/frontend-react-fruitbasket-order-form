@@ -1,17 +1,19 @@
 import React from 'react';
 
-function LabelInputForm({labelName, name, type, value, inputFunction}) {
+function LabelInputForm({labelName, nameValue, type, value, inputFunction, labelNameUnderneath, ...rest}) {
     return (
         <>
-            <label htmlFor={name}>
+            <label htmlFor={nameValue}>
                 {labelName}
                 <input
                     type={type}
-                    id={name}
-                    name={name}
+                    id={nameValue}
+                    name={nameValue}
                     value={value}
                     onChange={(e) => inputFunction(e.target.value)}
+                    {...rest}
                 />
+                {labelNameUnderneath}
             </label>
         </>
     );
