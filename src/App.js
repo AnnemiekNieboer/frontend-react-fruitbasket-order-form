@@ -105,6 +105,7 @@ function App() {
                     <label htmlFor="deliveryFrequency">
                         Bezorgfrequentie
                         <select
+                            className="input-field"
                             name="deliveryFrequency"
                             id="deliveryFrequency"
                             value={deliveryFrequencyValue}
@@ -136,6 +137,7 @@ function App() {
                     <label>
                         Opmerking
                         <textarea
+                            className="comments-input-field"
                             name="message"
                             rows="6"
                             cols="40"

@@ -6,6 +6,7 @@ function LabelInputForm({labelName, nameValue, type, value, inputFunction, label
             <label htmlFor={nameValue}>
                 {labelName}
                 <input
+                    className="input-field"
                     type={type}
                     id={nameValue}
                     name={nameValue}

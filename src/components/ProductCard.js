@@ -3,7 +3,7 @@ import React from "react";
 function ProductCard({productName, productVariable, productFunction}) {
     return (
         <>
-            <section className="product-card">
+            <section className={productVariable >= 1 ? "product-card fruit-selected" : "product-card"}>
                 <h2>{productName}</h2>
                 <button
                     className="counter-button"

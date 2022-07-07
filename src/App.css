@@ -20,7 +20,11 @@ h1 {
     border: 1px solid black;
     border-radius: 8px;
     width: 100%;
-    margin-bottom: 10px;
+    margin: 10px 0;
+}
+
+.fruit-selected {
+    border: 1px solid green;
 }
 
 .counter-button {
@@ -42,4 +46,19 @@ form, label {
 
 form {
     margin: 30px 0;
+}
+
+.input-field, .comments-input-field {
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: 3px 10px;
+}
+
+.comments-input-field {
+    margin: 10px 0;
+    width: 100%;
+}
+
+input[type="radio"] {
+    margin-left: 0;
 }
